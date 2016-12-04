@@ -16,6 +16,8 @@ class Data:
         else: pass
         with open(label_f) as f:
             self.labels = {int(row):int(label) for label,row in [split(r'\s+', line.strip()) for line in f]}
+        self.training_rows = list(self.labels.keys())
+        self.training_rows.sort()
         self.test_labels = list(set(range(len(self.data))) - set(self.labels.keys()))
         self.test_labels.sort()
         self.rows = len(self.data)
