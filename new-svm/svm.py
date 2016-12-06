@@ -6,6 +6,10 @@ import funct
 from sys import argv
 from sklearn import svm
 
+if len(argv) != 4:
+    print("""Please run in format
+    script data_file labels_file out_file""")
+    quit()
 script, d_f, l_f, filename = argv
 
 data = funct.Data(d_f, l_f, w0 = False)
